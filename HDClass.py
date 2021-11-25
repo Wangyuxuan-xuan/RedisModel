@@ -135,6 +135,7 @@ class HDClass():
         if assigned_email!=None:
             self.r.zrem('z_'+assigned_email+'_task',task_id)
         ##why has to be not null????
+        # because some task hasn't assigned
 
         self.r.delete('h_'+str(task_id))
         

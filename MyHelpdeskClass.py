@@ -90,7 +90,11 @@ class Helpdesk():
                       "assigner_email": assigner_email,
                       "assigned_email": assigned_email})
         # remember to use hmset
-        print(self.r.hgetall("h_task_details_" + str(task_id)))
+        # print(self.r.hgetall("h_task_details_" + str(task_id)))
+
+        priority = self.r.zscore("zset_task_priority", task_id)
+        self.r.zadd("z_" + assigned_email + "task", {task_id:
+                                                         priority})
 
     # 10
     def perform_task(self, email, task_id):
@@ -102,5 +106,34 @@ class Helpdesk():
         # performer email
         print(email)
 
+        ###delete stuff
+        self.r.zrem("zset_task_recorded_time", task_id)
+        self.r.zrem("zset_task_priority", task_id)
+        assigned_email = self.r.hget("h_task_details_" + str(task_id), "assigned_email")
+        if assigned_email is not None:
+            self.r.zrem("z_" + assigned_email + "task", task_id)
+        self.r.delete("h_task_details_" + str(task_id))
+
     def get_perform_task_time(self):
         print(datetime.now().strftime("%Y%m%d%H%M%S"))
+
+    # 11
+    def get_recording_time_list_desc(self):
+        print(self.r.zrange("zset_task_recorded_time", 0, -1, True, True))
+
+    # 12
+    def get_priority_list_desc(self):
+        print(self.r.zrange("zset_task_priority", 0, -1, True, True))
+
+    # 13
+    def get_assigned_task(self, email):
+        print(self.r.zrange("z_" + email + "task", 0, -1, True, True))
+
+    # 14
+    def get_newest_task_id(self):
+        print(self.r.get("task_id"))
+
+    # 15
+    def get_a_task_priority(self, task_id):
+        # print(str(task_id)+" : "+self.r.zscore("zset_task_priority",task_id))
+        print(self.r.zscore("zset_task_priority", task_id))
