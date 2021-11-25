@@ -48,6 +48,7 @@ class HDClass():
             #when incr , we incr the score , searching by key
             v_time=datetime.now().strftime("%Y%m%d%H%M%S")
             self.r.zadd('z_task_by_time',t_id, v_time)
+
             
     #7
     def task_details(self, task_id):

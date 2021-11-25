@@ -14,7 +14,7 @@ rf.list_emp()
 #rf.choose_manager('George')
 #print(rf.who_is_manager())
 
-# rf.new_task('John', 'print docs', 'path where you find id: c:\documents')
+rf.new_task('Anna', 'print docs', 'path where you find id: c:\documents')
 # rf.new_task('John','cook coffee','with 3 cube sugar')
 # rf.new_task('Anna','repair printer','on the floor')
 # rf.new_task('Anna','open the door','on the second room')
