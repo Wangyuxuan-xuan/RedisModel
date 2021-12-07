@@ -10,7 +10,7 @@ It stores only the present. The past is not important.
 /6. assign driver and car to a route
 /7. fulfill a route, record the price and distance, date_time_to (it may store information in a RDBMS or in document database in JSON)
 /8. list of cars and drivers with from_date_time of the work and period of that work. The list should be descending sorted by the period of the work.
-9. list of cars and drivers sorted by the sum of distances
+/9. list of cars and drivers sorted by the sum of distances
 /10. details of car and driver
 /11. list of the ordered and not assigned routes
 12. list of the working car ascending sorted by the sum of the prices of the work from its beginning. 
