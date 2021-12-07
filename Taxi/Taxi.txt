@@ -1,0 +1,21 @@
+Write a phython class which implements methods that perform acts in Redis for the following problem: 
+Taxi
+It stores only the present. The past is not important.
+
+/1. store new car and driver (license_plate, driver name, number_of_transportable_passengers, production_year_of_car, cartype, phone_number)
+/2. the car and the driver begin to work (from_date_time)
+/3. the car and the driver finish the work (to_date_time) (writes information to RDBMS or JSON and deletes data)
+/4. list of working cars
+/5. route order  (address_from, address_to, date_time_from,  number_of_passengers) (id is a good idea)
+/6. assign driver and car to a route
+/7. fulfill a route, record the price and distance, date_time_to (it may store information in a RDBMS or in document database in JSON)
+/8. list of cars and drivers with from_date_time of the work and period of that work. The list should be descending sorted by the period of the work.
+9. list of cars and drivers sorted by the sum of distances
+/10. details of car and driver
+/11. list of the ordered and not assigned routes
+12. list of the working car ascending sorted by the sum of the prices of the work from its beginning. 
+/13. list of cars
+/14. list of the assigned and not fullfilled routes
+/15. details of a route
+
+I need a class, which implements these methods and a running code which teszt the class methods. 
